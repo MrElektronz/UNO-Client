@@ -3,6 +3,7 @@ package de.kbecker.cards;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 /**
  * @author Kevin Becker (kevin.becker@stud.th-owl.de)
@@ -60,6 +61,16 @@ public class Card3D {
                     break;
         }
         cardView.setViewport(new Rectangle2D((number)*164,0,164,234));
+        cardView.setOnMouseEntered((MouseEvent event)->{
+            if(faceUp){
+                cardView.setViewOrder(-1d);
+            }
+        });
+        cardView.setOnMouseExited((MouseEvent event)->{
+            if(faceUp){
+                cardView.setViewOrder(0d);
+            }
+        });
     }
 
     @Override

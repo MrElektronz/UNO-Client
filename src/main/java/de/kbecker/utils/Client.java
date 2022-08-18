@@ -354,6 +354,10 @@ public class Client {
 		}
 	}
 
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
 	/**
 	 * If successful, send new game update to all clients
 	 * 

@@ -12,6 +12,7 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class GameGUIController implements Initializable {
@@ -50,7 +51,17 @@ public class GameGUIController implements Initializable {
                     }
                 }
         );
+    }
 
+    public void setPlayerCards(ArrayList<Card> cards){
+        Platform.runLater(new Runnable() {
+            @Override
+            public void run() {
+                for(int i = 0; i< cards.size();i++){
+                    mainPane.getChildren().add(new Card3D(cards.get(i),true,20+(i*150),550).getCardView());
+                }
+            }
+        });
     }
 
     public static GameGUIController getInstance() {

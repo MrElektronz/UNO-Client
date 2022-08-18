@@ -24,12 +24,15 @@ public class LoginController implements Initializable {
     private TextField password;
 
     @FXML
-    public static Label errorLabel;
+    private Label errorLabel;
+
+    private static LoginController instance;
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        instance = this;
     }
 
     @FXML
@@ -41,5 +44,13 @@ public class LoginController implements Initializable {
     @FXML
     private void onRegisterHere() throws IOException {
         App.setRoot("Scene_Register",600,400);
+    }
+
+    public static LoginController getInstance() {
+        return instance;
+    }
+
+    public Label getErrorLabel() {
+        return errorLabel;
     }
 }
