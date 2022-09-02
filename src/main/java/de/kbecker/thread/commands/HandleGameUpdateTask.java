@@ -41,6 +41,15 @@ public class HandleGameUpdateTask extends Task{
                     }
                 }
             }
+            String currentPlayer = playerData.get(jobj.get("currentPlayer").getAsInt()).getAsJsonObject().get("username").getAsString();
+
+            if(jobj.has("event")){
+                String event = jobj.get("event").getAsString();
+                if(event.equals("wildCard") && Client.getInstance().getUsername().equals(currentPlayer)){
+                    GameGUIController.getInstance().showWildCardPicker();
+                }
+            }
+
             GameGUIController.getInstance().setPlayerCards(cards);
         } catch (IOException e) {
             e.printStackTrace();

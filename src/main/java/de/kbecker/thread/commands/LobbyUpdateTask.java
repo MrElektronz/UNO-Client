@@ -18,7 +18,8 @@ public class LobbyUpdateTask extends Task{
                 @Override
                 public void run() {
                     App.gThread.getLobby().getSlotText().setText(slotText);
-                    if(currentPlayers > 1){
+                    //TODO: Switch to > 1 to enable only 2 players and more
+                    if(currentPlayers > 0){
                         App.gThread.getLobby().setStartButtonEnabled(true);
                     }else{
                         App.gThread.getLobby().setStartButtonEnabled(false);

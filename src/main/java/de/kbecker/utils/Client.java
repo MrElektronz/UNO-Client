@@ -3,7 +3,9 @@ package de.kbecker.utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import de.kbecker.cards.Card;
 import de.kbecker.thread.TaskThread;
+import javafx.scene.paint.Color;
 import org.example.App;
 
 import java.io.DataInputStream;
@@ -115,6 +117,62 @@ public class Client {
 		JsonObject request = new JsonObject();
 		request.addProperty("command", "startGame");
 		request.addProperty("sessionID", sessionID);
+
+		try {
+			initClient();
+			out.writeUTF(new Gson().toJson(request));
+			out.flush();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+
+	/**
+	 * Tries to draw a card
+	 */
+	public void drawCard() {
+		JsonObject request = new JsonObject();
+		request.addProperty("command", "drawCard");
+		request.addProperty("sessionID", sessionID);
+
+		try {
+			initClient();
+			out.writeUTF(new Gson().toJson(request));
+			out.flush();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	/**
+	 *
+	 * @param fill
+	 */
+	public void chooseColor(Color fill) {
+		JsonObject request = new JsonObject();
+		request.addProperty("command", "chooseColor");
+		request.addProperty("sessionID", sessionID);
+		request.addProperty("color", fill.toString());
+
+		try {
+			initClient();
+			out.writeUTF(new Gson().toJson(request));
+			out.flush();
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+
+	/**
+	 * Tries to draw a card
+	 */
+	public void setCard(Card card) {
+		JsonObject request = new JsonObject();
+		request.addProperty("command", "setCard");
+		request.addProperty("sessionID", sessionID);
+		request.add("card", card.serialize());
 
 		try {
 			initClient();

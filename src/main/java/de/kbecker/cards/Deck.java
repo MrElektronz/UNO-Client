@@ -1,7 +1,9 @@
 package de.kbecker.cards;
 
+import de.kbecker.utils.Client;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 
 import java.util.ArrayList;
 
@@ -34,5 +36,8 @@ public class Deck {
         view.setX((offset*5)+340);
         view.setY((offset*5)+290);
         deckView.add(view);
+        view.setOnMouseClicked((MouseEvent event)->{
+            Client.getInstance().drawCard();
+        });
     }
 }
