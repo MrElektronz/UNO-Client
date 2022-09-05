@@ -15,10 +15,6 @@ import java.util.ResourceBundle;
 public class LobbyController implements Initializable {
 
 
-    public static String lobbyId = "";
-    public static String slotDescription = "";
-
-
     @FXML
     private TextField code;
     @FXML

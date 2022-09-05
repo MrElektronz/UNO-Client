@@ -31,7 +31,6 @@ public class WildCardColorPicker extends Group{
         initCircle(green, Color.GREEN, 460,480);
         initCircle(yellow, Color.YELLOW,620,480);
         this.setViewOrder(-3f);
-        System.out.println("PICKER!");
     }
 
 

@@ -29,7 +29,6 @@ public class MainMenuController implements Initializable {
         code.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
-                System.out.println(t1);
                 if(t1.length()<8){
                     bJoin.setDisable(true);
                 }else{

@@ -17,11 +17,6 @@ import java.util.ResourceBundle;
 
 public class RegisterController implements Initializable {
 
-    private ImageView deckView;
-
-    @FXML
-    private Pane mainPane;
-
     @FXML
     private TextField username;
     @FXML

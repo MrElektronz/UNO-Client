@@ -24,7 +24,7 @@ public class HandleGameUpdateTask extends Task{
                 App.setRoot("GameGUI", 1200, 800);
             }
             if(jobj.has("winner")){
-                GameGUIController.getInstance().endGame(jobj.get("winner").getAsString());
+                GameGUIController.getInstance().endGame();
                 if(Client.getInstance().getUsername().equals(jobj.get("winner").getAsString())){
                     EndController.getInstance().setWinner();
                 }

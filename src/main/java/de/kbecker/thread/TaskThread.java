@@ -42,7 +42,6 @@ public class TaskThread extends Thread{
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            System.out.println("received: "+received);
             JsonElement jsonReceived = new JsonParser().parse(received);
 
             if (jsonReceived.isJsonObject() && jsonReceived.getAsJsonObject().get("task") != null) {

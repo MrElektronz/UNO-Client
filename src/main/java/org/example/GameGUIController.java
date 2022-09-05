@@ -130,7 +130,6 @@ public class GameGUIController implements Initializable {
     }
 
     public void setWildCardColor(String color){
-        System.out.println("Wilcard color: "+color);
         String colorCode = "0x008000ff";
         switch(color){
             case "RED":
@@ -159,7 +158,7 @@ public class GameGUIController implements Initializable {
         });
     }
 
-    public void endGame(String winner){
+    public void endGame(){
         try{
             instance = null;
             App.setRoot("Scene_End",1200,800);
@@ -187,8 +186,6 @@ public class GameGUIController implements Initializable {
             space-=2;
             lastCardX = 20+((cardLength-1)*space);
         }
-        System.out.println("space: "+space);
-        System.out.println("cards: "+cardLength);
 
 
         int finalSpace = space;
@@ -256,31 +253,10 @@ public class GameGUIController implements Initializable {
                     public void run() {
                         GameGUIController.getInstance().getArrow().setY(y-105);
                         GameGUIController.getInstance().getArrow().setX(x-42);
-                        System.out.println("Arrow to enemy: "+x+", "+(y-60));
                     }
                 });
             }
 
-        }
-
-        public void setCardCount(int cardCount) {
-            this.cardCount = cardCount;
-        }
-
-        public void setMyTurn(boolean myTurn) {
-            this.myTurn = myTurn;
-        }
-
-        public int getCardCount() {
-            return cardCount;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public boolean isMyTurn() {
-            return myTurn;
         }
 
         @Override

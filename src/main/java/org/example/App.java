@@ -2,6 +2,7 @@ package org.example;
 
 import de.kbecker.cards.Card;
 import de.kbecker.thread.TaskThread;
+import de.kbecker.utils.ConfigManager;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -25,8 +26,6 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         this.stage = stage;
-        Card card3 = new Card(Card.CardColor.GREEN, 3);
-        System.out.println(card3.toString());
         scene = new Scene(loadFXML("Scene_Login"), 600, 400);
         scene.setFill(Color.DARKBLUE);
         stage.setScene(scene);
@@ -42,6 +41,9 @@ public class App extends Application {
         });
 
     }
+
+
+
 
     public static void setRoot(String fxml, int width, int height) throws IOException {
         scene.setRoot(loadFXML(fxml));
